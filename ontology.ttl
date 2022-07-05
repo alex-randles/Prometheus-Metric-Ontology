@@ -70,7 +70,6 @@
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasMetricQuery
 :hasMetricQuery rdf:type owl:ObjectProperty ;
-                owl:inverseOf :usedByMetric ;
                 rdfs:domain :Metric ;
                 rdfs:range :MetricQuery ;
                 rdfs:comment "The query which retrieved the metric information." ;
@@ -79,7 +78,6 @@
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasResult
 :hasResult rdf:type owl:ObjectProperty ;
-           owl:inverseOf :inMetricSet ;
            rdfs:domain :MetricResultSet ;
            rdfs:range :MetricResult ;
            rdfs:comment "A result within a result set." ;
@@ -96,6 +94,7 @@
 
 ###  https://prometheus-metric-ontology.ericsson.com/#inMetricSet
 :inMetricSet rdf:type owl:ObjectProperty ;
+             owl:inverseOf :hasResult ;
              rdfs:domain :MetricResult ;
              rdfs:range :MetricResultSet ;
              rdfs:comment "A result within a result set." ;
@@ -104,6 +103,7 @@
 
 ###  https://prometheus-metric-ontology.ericsson.com/#usedByMetric
 :usedByMetric rdf:type owl:ObjectProperty ;
+              owl:inverseOf :hasMetricQuery ;
               rdfs:domain :MetricQuery ;
               rdfs:range :Metric ;
               rdfs:comment "The metric used by the query." ;
@@ -119,7 +119,7 @@
             rdfs:domain :Metric ;
             rdfs:range xsd:string ;
             rdfs:comment "The Address label for the metric." ;
-            rdfs:label "hasQuery" .
+            rdfs:label "hasAddress" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasAlertmanager
@@ -127,7 +127,7 @@
                  rdfs:domain :Metric ;
                  rdfs:range xsd:string ;
                  rdfs:comment "The Alertmanager label for the metric." ;
-                 rdfs:label "hasQuery" .
+                 rdfs:label "hasAlertmanager" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasAlertname
@@ -135,7 +135,7 @@
               rdfs:domain :Metric ;
               rdfs:range xsd:string ;
               rdfs:comment "The Alertname label for the metric." ;
-              rdfs:label "hasQuery" .
+              rdfs:label "hasAlertname" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasAlertstate
@@ -143,55 +143,55 @@
                rdfs:domain :Metric ;
                rdfs:range xsd:string ;
                rdfs:comment "The Alertstate label for the metric." ;
-               rdfs:label "hasQuery" .
+               rdfs:label "hasAlertstate" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasBiosDate
 :hasBiosDate rdf:type owl:DatatypeProperty ;
              rdfs:domain :Metric ;
              rdfs:range xsd:string ;
-             rdfs:comment "The Biosdate label for the metric." ;
-             rdfs:label "hasQuery" .
+             rdfs:comment "The Bios date label for the metric." ;
+             rdfs:label "hasBiosDate" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasBiosVendor
 :hasBiosVendor rdf:type owl:DatatypeProperty ;
                rdfs:domain :Metric ;
                rdfs:range xsd:string ;
-               rdfs:comment "The Biosvendor label for the metric." ;
-               rdfs:label "hasQuery" .
+               rdfs:comment "The Bios vendor label for the metric." ;
+               rdfs:label "hasBiosVendor" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasBiosVersion
 :hasBiosVersion rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Metric ;
                 rdfs:range xsd:string ;
-                rdfs:comment "The Biosversion label for the metric." ;
-                rdfs:label "hasQuery" .
+                rdfs:comment "The Bios version label for the metric." ;
+                rdfs:label "hasBiosVersion" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasBoardName
 :hasBoardName rdf:type owl:DatatypeProperty ;
               rdfs:domain :Metric ;
               rdfs:range xsd:string ;
-              rdfs:comment "The Boardname label for the metric." ;
-              rdfs:label "hasQuery" .
+              rdfs:comment "The Board name label for the metric." ;
+              rdfs:label "hasBoardName" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasBoardVendor
 :hasBoardVendor rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Metric ;
                 rdfs:range xsd:string ;
-                rdfs:comment "The Boardvendor label for the metric." ;
-                rdfs:label "hasQuery" .
+                rdfs:comment "The Board vendor label for the metric." ;
+                rdfs:label "hasBoardVendor" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasBoardVersion
 :hasBoardVersion rdf:type owl:DatatypeProperty ;
                  rdfs:domain :Metric ;
                  rdfs:range xsd:string ;
-                 rdfs:comment "The Boardversion label for the metric." ;
-                 rdfs:label "hasQuery" .
+                 rdfs:comment "The Board version label for the metric." ;
+                 rdfs:label "hasBoardVersion" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasBranch
@@ -199,7 +199,7 @@
            rdfs:domain :Metric ;
            rdfs:range xsd:string ;
            rdfs:comment "The Branch label for the metric." ;
-           rdfs:label "hasQuery" .
+           rdfs:label "hasBranch" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasBroadcast
@@ -207,7 +207,7 @@
               rdfs:domain :Metric ;
               rdfs:range xsd:string ;
               rdfs:comment "The Broadcast label for the metric." ;
-              rdfs:label "hasQuery" .
+              rdfs:label "hasBroadcast" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasCall
@@ -215,15 +215,15 @@
          rdfs:domain :Metric ;
          rdfs:range xsd:string ;
          rdfs:comment "The Call label for the metric." ;
-         rdfs:label "hasQuery" .
+         rdfs:label "hasCall" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasCapacityLevel
 :hasCapacityLevel rdf:type owl:DatatypeProperty ;
                   rdfs:domain :Metric ;
                   rdfs:range xsd:string ;
-                  rdfs:comment "The Capacitylevel label for the metric." ;
-                  rdfs:label "hasQuery" .
+                  rdfs:comment "The Capacity level label for the metric." ;
+                  rdfs:label "hasCapacityLevel" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasCause
@@ -231,15 +231,15 @@
           rdfs:domain :Metric ;
           rdfs:range xsd:string ;
           rdfs:comment "The Cause label for the metric." ;
-          rdfs:label "hasQuery" .
+          rdfs:label "hasCause" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasChassisVendor
 :hasChassisVendor rdf:type owl:DatatypeProperty ;
                   rdfs:domain :Metric ;
                   rdfs:range xsd:string ;
-                  rdfs:comment "The Chassisvendor label for the metric." ;
-                  rdfs:label "hasQuery" .
+                  rdfs:comment "The Chassis vendor label for the metric." ;
+                  rdfs:label "hasChassisVendor" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasChip
@@ -247,15 +247,15 @@
          rdfs:domain :Metric ;
          rdfs:range xsd:string ;
          rdfs:comment "The Chip label for the metric." ;
-         rdfs:label "hasQuery" .
+         rdfs:label "hasChip" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasChipName
 :hasChipName rdf:type owl:DatatypeProperty ;
              rdfs:domain :Metric ;
              rdfs:range xsd:string ;
-             rdfs:comment "The Chipname label for the metric." ;
-             rdfs:label "hasQuery" .
+             rdfs:comment "The Chip name label for the metric." ;
+             rdfs:label "hasChipName" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasClocksource
@@ -263,14 +263,14 @@
                 rdfs:domain :Metric ;
                 rdfs:range xsd:string ;
                 rdfs:comment "The Clocksource label for the metric." ;
-                rdfs:label "hasQuery" .
+                rdfs:label "hasClocksource" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasCode
 :hasCode rdf:type owl:DatatypeProperty ;
          rdfs:domain :Metric ;
          rdfs:range xsd:string ;
-         rdfs:comment "The code related to the metric." ;
+         rdfs:comment "The Code label for the metric." ;
          rdfs:label "hasCode" .
 
 
@@ -279,7 +279,7 @@
               rdfs:domain :Metric ;
               rdfs:range xsd:string ;
               rdfs:comment "The Collector label for the metric." ;
-              rdfs:label "hasQuery" .
+              rdfs:label "hasCollector" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasConfig
@@ -287,7 +287,7 @@
            rdfs:domain :Metric ;
            rdfs:range xsd:string ;
            rdfs:comment "The Config label for the metric." ;
-           rdfs:label "hasQuery" .
+           rdfs:label "hasConfig" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasCore
@@ -295,7 +295,7 @@
          rdfs:domain :Metric ;
          rdfs:range xsd:string ;
          rdfs:comment "The Core label for the metric." ;
-         rdfs:label "hasQuery" .
+         rdfs:label "hasCore" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasCpu
@@ -303,7 +303,7 @@
         rdfs:domain :Metric ;
         rdfs:range xsd:string ;
         rdfs:comment "The Cpu label for the metric." ;
-        rdfs:label "hasQuery" .
+        rdfs:label "hasCpu" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasDevice
@@ -311,15 +311,15 @@
            rdfs:domain :Metric ;
            rdfs:range xsd:string ;
            rdfs:comment "The Device label for the metric." ;
-           rdfs:label "hasQuery" .
+           rdfs:label "hasDevice" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasDialerName
 :hasDialerName rdf:type owl:DatatypeProperty ;
                rdfs:domain :Metric ;
                rdfs:range xsd:string ;
-               rdfs:comment "The Dialername label for the metric." ;
-               rdfs:label "hasQuery" .
+               rdfs:comment "The Dialer name label for the metric." ;
+               rdfs:label "hasDialerName" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasDomainname
@@ -327,7 +327,7 @@
                rdfs:domain :Metric ;
                rdfs:range xsd:string ;
                rdfs:comment "The Domainname label for the metric." ;
-               rdfs:label "hasQuery" .
+               rdfs:label "hasDomainname" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasDuplex
@@ -335,7 +335,7 @@
            rdfs:domain :Metric ;
            rdfs:range xsd:string ;
            rdfs:comment "The Duplex label for the metric." ;
-           rdfs:label "hasQuery" .
+           rdfs:label "hasDuplex" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasEndpoint
@@ -343,7 +343,7 @@
              rdfs:domain :Metric ;
              rdfs:range xsd:string ;
              rdfs:comment "The Endpoint label for the metric." ;
-             rdfs:label "hasQuery" .
+             rdfs:label "hasEndpoint" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasEvent
@@ -351,15 +351,15 @@
           rdfs:domain :Metric ;
           rdfs:range xsd:string ;
           rdfs:comment "The Event label for the metric." ;
-          rdfs:label "hasQuery" .
+          rdfs:label "hasEvent" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasFirmwareRevision
 :hasFirmwareRevision rdf:type owl:DatatypeProperty ;
                      rdfs:domain :Metric ;
                      rdfs:range xsd:string ;
-                     rdfs:comment "The Firmwarerevision label for the metric." ;
-                     rdfs:label "hasQuery" .
+                     rdfs:comment "The Firmware revision label for the metric." ;
+                     rdfs:label "hasFirmwareRevision" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasFstype
@@ -367,7 +367,7 @@
            rdfs:domain :Metric ;
            rdfs:range xsd:string ;
            rdfs:comment "The Fstype label for the metric." ;
-           rdfs:label "hasQuery" .
+           rdfs:label "hasFstype" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasGoversion
@@ -375,14 +375,14 @@
               rdfs:domain :Metric ;
               rdfs:range xsd:string ;
               rdfs:comment "The Goversion label for the metric." ;
-              rdfs:label "hasQuery" .
+              rdfs:label "hasGoversion" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasHandler
 :hasHandler rdf:type owl:DatatypeProperty ;
             rdfs:domain :Metric ;
             rdfs:range xsd:string ;
-            rdfs:comment "The handler related to the metric." ;
+            rdfs:comment "The Handler label for the metric." ;
             rdfs:label "hasHandler" .
 
 
@@ -391,15 +391,15 @@
        rdfs:domain :Metric ;
        rdfs:range xsd:string ;
        rdfs:comment "The Id label for the metric." ;
-       rdfs:label "hasQuery" .
+       rdfs:label "hasId" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasIdLike
 :hasIdLike rdf:type owl:DatatypeProperty ;
            rdfs:domain :Metric ;
            rdfs:range xsd:string ;
-           rdfs:comment "The Idlike label for the metric." ;
-           rdfs:label "hasQuery" .
+           rdfs:comment "The Id like label for the metric." ;
+           rdfs:label "hasIdLike" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasIndex
@@ -407,14 +407,14 @@
           rdfs:domain :Metric ;
           rdfs:range xsd:string ;
           rdfs:comment "The Index label for the metric." ;
-          rdfs:label "hasQuery" .
+          rdfs:label "hasIndex" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasInstance
 :hasInstance rdf:type owl:DatatypeProperty ;
              rdfs:domain :Metric ;
              rdfs:range xsd:string ;
-             rdfs:comment "The instance related to the metric." ;
+             rdfs:comment "The Instance label for the metric." ;
              rdfs:label "hasInstance" .
 
 
@@ -423,7 +423,7 @@
              rdfs:domain :Metric ;
              rdfs:range xsd:string ;
              rdfs:comment "The Interval label for the metric." ;
-             rdfs:label "hasQuery" .
+             rdfs:label "hasInterval" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasIp
@@ -431,7 +431,7 @@
        rdfs:domain :Metric ;
        rdfs:range xsd:string ;
        rdfs:comment "The Ip label for the metric." ;
-       rdfs:label "hasQuery" .
+       rdfs:label "hasIp" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasJob
@@ -439,7 +439,7 @@
         rdfs:domain :Metric ;
         rdfs:range xsd:string ;
         rdfs:comment "The Job label for the metric." ;
-        rdfs:label "hasQuery" .
+        rdfs:label "hasJob" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasLabel
@@ -447,7 +447,7 @@
           rdfs:domain :Metric ;
           rdfs:range xsd:string ;
           rdfs:comment "The Label label for the metric." ;
-          rdfs:label "hasQuery" .
+          rdfs:label "hasLabel" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasLe
@@ -455,15 +455,15 @@
        rdfs:domain :Metric ;
        rdfs:range xsd:string ;
        rdfs:comment "The Le label for the metric." ;
-       rdfs:label "hasQuery" .
+       rdfs:label "hasLe" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasListenerName
 :hasListenerName rdf:type owl:DatatypeProperty ;
                  rdfs:domain :Metric ;
                  rdfs:range xsd:string ;
-                 rdfs:comment "The Listenername label for the metric." ;
-                 rdfs:label "hasQuery" .
+                 rdfs:comment "The Listener name label for the metric." ;
+                 rdfs:label "hasListenerName" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasMachine
@@ -471,7 +471,7 @@
             rdfs:domain :Metric ;
             rdfs:range xsd:string ;
             rdfs:comment "The Machine label for the metric." ;
-            rdfs:label "hasQuery" .
+            rdfs:label "hasMachine" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasMajor
@@ -479,7 +479,7 @@
           rdfs:domain :Metric ;
           rdfs:range xsd:string ;
           rdfs:comment "The Major label for the metric." ;
-          rdfs:label "hasQuery" .
+          rdfs:label "hasMajor" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasManufacturer
@@ -487,7 +487,7 @@
                  rdfs:domain :Metric ;
                  rdfs:range xsd:string ;
                  rdfs:comment "The Manufacturer label for the metric." ;
-                 rdfs:label "hasQuery" .
+                 rdfs:label "hasManufacturer" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasMinor
@@ -495,7 +495,7 @@
           rdfs:domain :Metric ;
           rdfs:range xsd:string ;
           rdfs:comment "The Minor label for the metric." ;
-          rdfs:label "hasQuery" .
+          rdfs:label "hasMinor" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasMode
@@ -503,7 +503,7 @@
          rdfs:domain :Metric ;
          rdfs:range xsd:string ;
          rdfs:comment "The Mode label for the metric." ;
-         rdfs:label "hasQuery" .
+         rdfs:label "hasMode" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasModel
@@ -511,15 +511,15 @@
           rdfs:domain :Metric ;
           rdfs:range xsd:string ;
           rdfs:comment "The Model label for the metric." ;
-          rdfs:label "hasQuery" .
+          rdfs:label "hasModel" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasModelName
 :hasModelName rdf:type owl:DatatypeProperty ;
               rdfs:domain :Metric ;
               rdfs:range xsd:string ;
-              rdfs:comment "The Modelname label for the metric." ;
-              rdfs:label "hasQuery" .
+              rdfs:comment "The Model name label for the metric." ;
+              rdfs:label "hasModelName" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasMountpoint
@@ -527,15 +527,16 @@
                rdfs:domain :Metric ;
                rdfs:range xsd:string ;
                rdfs:comment "The Mountpoint label for the metric." ;
-               rdfs:label "hasQuery" .
+               rdfs:label "hasMountpoint" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasName
 :hasName rdf:type owl:DatatypeProperty ;
          rdfs:domain :Metric ;
          rdfs:range xsd:string ;
-         rdfs:comment "The Name label for the metric." ;
-         rdfs:label "hasQuery" .
+         rdfs:comment "The   name   label for the metric." ,
+                      "The Name label for the metric." ;
+         rdfs:label "hasName" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasNodename
@@ -543,7 +544,7 @@
              rdfs:domain :Metric ;
              rdfs:range xsd:string ;
              rdfs:comment "The Nodename label for the metric." ;
-             rdfs:label "hasQuery" .
+             rdfs:label "hasNodename" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasOperstate
@@ -551,7 +552,7 @@
               rdfs:domain :Metric ;
               rdfs:range xsd:string ;
               rdfs:comment "The Operstate label for the metric." ;
-              rdfs:label "hasQuery" .
+              rdfs:label "hasOperstate" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasPackage
@@ -559,7 +560,7 @@
             rdfs:domain :Metric ;
             rdfs:range xsd:string ;
             rdfs:comment "The Package label for the metric." ;
-            rdfs:label "hasQuery" .
+            rdfs:label "hasPackage" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasPath
@@ -567,39 +568,39 @@
          rdfs:domain :Metric ;
          rdfs:range xsd:string ;
          rdfs:comment "The Path label for the metric." ;
-         rdfs:label "hasQuery" .
+         rdfs:label "hasPath" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasPowerSupply
 :hasPowerSupply rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Metric ;
                 rdfs:range xsd:string ;
-                rdfs:comment "The Powersupply label for the metric." ;
-                rdfs:label "hasQuery" .
+                rdfs:comment "The Power supply label for the metric." ;
+                rdfs:label "hasPowerSupply" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasPrettyName
 :hasPrettyName rdf:type owl:DatatypeProperty ;
                rdfs:domain :Metric ;
                rdfs:range xsd:string ;
-               rdfs:comment "The Prettyname label for the metric." ;
-               rdfs:label "hasQuery" .
+               rdfs:comment "The Pretty name label for the metric." ;
+               rdfs:label "hasPrettyName" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasProductFamily
 :hasProductFamily rdf:type owl:DatatypeProperty ;
                   rdfs:domain :Metric ;
                   rdfs:range xsd:string ;
-                  rdfs:comment "The Productfamily label for the metric." ;
-                  rdfs:label "hasQuery" .
+                  rdfs:comment "The Product family label for the metric." ;
+                  rdfs:label "hasProductFamily" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasProductName
 :hasProductName rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Metric ;
                 rdfs:range xsd:string ;
-                rdfs:comment "The Productname label for the metric." ;
-                rdfs:label "hasQuery" .
+                rdfs:comment "The Product name label for the metric." ;
+                rdfs:label "hasProductName" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasQuantile
@@ -607,7 +608,7 @@
              rdfs:domain :Metric ;
              rdfs:range xsd:string ;
              rdfs:comment "The Quantile label for the metric." ;
-             rdfs:label "hasQuery" .
+             rdfs:label "hasQuantile" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasQuery
@@ -623,7 +624,7 @@
           rdfs:domain :Metric ;
           rdfs:range xsd:string ;
           rdfs:comment "The Queue label for the metric." ;
-          rdfs:label "hasQuery" .
+          rdfs:label "hasQueue" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasReason
@@ -631,7 +632,7 @@
            rdfs:domain :Metric ;
            rdfs:range xsd:string ;
            rdfs:comment "The Reason label for the metric." ;
-           rdfs:label "hasQuery" .
+           rdfs:label "hasReason" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasRelease
@@ -639,7 +640,7 @@
             rdfs:domain :Metric ;
             rdfs:range xsd:string ;
             rdfs:comment "The Release label for the metric." ;
-            rdfs:label "hasQuery" .
+            rdfs:label "hasRelease" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasResultType
@@ -655,7 +656,7 @@
              rdfs:domain :Metric ;
              rdfs:range xsd:string ;
              rdfs:comment "The Revision label for the metric." ;
-             rdfs:label "hasQuery" .
+             rdfs:label "hasRevision" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasRole
@@ -663,23 +664,23 @@
          rdfs:domain :Metric ;
          rdfs:range xsd:string ;
          rdfs:comment "The Role label for the metric." ;
-         rdfs:label "hasQuery" .
+         rdfs:label "hasRole" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasRuleGroup
 :hasRuleGroup rdf:type owl:DatatypeProperty ;
               rdfs:domain :Metric ;
               rdfs:range xsd:string ;
-              rdfs:comment "The Rulegroup label for the metric." ;
-              rdfs:label "hasQuery" .
+              rdfs:comment "The Rule group label for the metric." ;
+              rdfs:label "hasRuleGroup" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasScrapeJob
 :hasScrapeJob rdf:type owl:DatatypeProperty ;
               rdfs:domain :Metric ;
               rdfs:range xsd:string ;
-              rdfs:comment "The Scrapejob label for the metric." ;
-              rdfs:label "hasQuery" .
+              rdfs:comment "The Scrape job label for the metric." ;
+              rdfs:label "hasScrapeJob" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasSensor
@@ -687,7 +688,7 @@
            rdfs:domain :Metric ;
            rdfs:range xsd:string ;
            rdfs:comment "The Sensor label for the metric." ;
-           rdfs:label "hasQuery" .
+           rdfs:label "hasSensor" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasSerial
@@ -695,15 +696,15 @@
            rdfs:domain :Metric ;
            rdfs:range xsd:string ;
            rdfs:comment "The Serial label for the metric." ;
-           rdfs:label "hasQuery" .
+           rdfs:label "hasSerial" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasSerialNumber
 :hasSerialNumber rdf:type owl:DatatypeProperty ;
                  rdfs:domain :Metric ;
                  rdfs:range xsd:string ;
-                 rdfs:comment "The Serialnumber label for the metric." ;
-                 rdfs:label "hasQuery" .
+                 rdfs:comment "The Serial number label for the metric." ;
+                 rdfs:label "hasSerialNumber" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasSlice
@@ -711,7 +712,7 @@
           rdfs:domain :Metric ;
           rdfs:range xsd:string ;
           rdfs:comment "The Slice label for the metric." ;
-          rdfs:label "hasQuery" .
+          rdfs:label "hasSlice" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasState
@@ -719,7 +720,7 @@
           rdfs:domain :Metric ;
           rdfs:range xsd:string ;
           rdfs:comment "The State label for the metric." ;
-          rdfs:label "hasQuery" .
+          rdfs:label "hasState" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasStatus
@@ -729,8 +730,7 @@
            rdfs:range xsd:string ;
            rdfs:comment "The Status label for the metric." ,
                         "The status of the API response." ;
-           rdfs:label "hasQuery" ,
-                      "hasStatus" .
+           rdfs:label "hasStatus" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasSysname
@@ -738,15 +738,15 @@
             rdfs:domain :Metric ;
             rdfs:range xsd:string ;
             rdfs:comment "The Sysname label for the metric." ;
-            rdfs:label "hasQuery" .
+            rdfs:label "hasSysname" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasSystemVendor
 :hasSystemVendor rdf:type owl:DatatypeProperty ;
                  rdfs:domain :Metric ;
                  rdfs:range xsd:string ;
-                 rdfs:comment "The Systemvendor label for the metric." ;
-                 rdfs:label "hasQuery" .
+                 rdfs:comment "The System vendor label for the metric." ;
+                 rdfs:label "hasSystemVendor" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasTechnology
@@ -754,15 +754,15 @@
                rdfs:domain :Metric ;
                rdfs:range xsd:string ;
                rdfs:comment "The Technology label for the metric." ;
-               rdfs:label "hasQuery" .
+               rdfs:label "hasTechnology" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasTimeZone
 :hasTimeZone rdf:type owl:DatatypeProperty ;
              rdfs:domain :Metric ;
              rdfs:range xsd:string ;
-             rdfs:comment "The Timezone label for the metric." ;
-             rdfs:label "hasQuery" .
+             rdfs:comment "The Time zone label for the metric." ;
+             rdfs:label "hasTimeZone" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasTimestamp
@@ -778,7 +778,7 @@
          rdfs:domain :Metric ;
          rdfs:range xsd:string ;
          rdfs:comment "The Type label for the metric." ;
-         rdfs:label "hasQuery" .
+         rdfs:label "hasType" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasValue
@@ -794,23 +794,23 @@
             rdfs:domain :Metric ;
             rdfs:range xsd:string ;
             rdfs:comment "The Version label for the metric." ;
-            rdfs:label "hasQuery" .
+            rdfs:label "hasVersion" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasVersionCodename
 :hasVersionCodename rdf:type owl:DatatypeProperty ;
                     rdfs:domain :Metric ;
                     rdfs:range xsd:string ;
-                    rdfs:comment "The Versioncodename label for the metric." ;
-                    rdfs:label "hasQuery" .
+                    rdfs:comment "The Version codename label for the metric." ;
+                    rdfs:label "hasVersionCodename" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasVersionId
 :hasVersionId rdf:type owl:DatatypeProperty ;
               rdfs:domain :Metric ;
               rdfs:range xsd:string ;
-              rdfs:comment "The Versionid label for the metric." ;
-              rdfs:label "hasQuery" .
+              rdfs:comment "The Version id label for the metric." ;
+              rdfs:label "hasVersionId" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasZone
@@ -818,7 +818,7 @@
          rdfs:domain :Metric ;
          rdfs:range xsd:string ;
          rdfs:comment "The Zone label for the metric." ;
-         rdfs:label "hasQuery" .
+         rdfs:label "hasZone" .
 
 
 #################################################################

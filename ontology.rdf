@@ -121,7 +121,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasMetricQuery">
-        <owl:inverseOf rdf:resource="https://prometheus-metric-ontology.ericsson.com/#usedByMetric"/>
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="https://prometheus-metric-ontology.ericsson.com/#MetricQuery"/>
         <rdfs:comment>The query which retrieved the metric information.</rdfs:comment>
@@ -134,7 +133,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasResult">
-        <owl:inverseOf rdf:resource="https://prometheus-metric-ontology.ericsson.com/#inMetricSet"/>
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#MetricResultSet"/>
         <rdfs:range rdf:resource="https://prometheus-metric-ontology.ericsson.com/#MetricResult"/>
         <rdfs:comment>A result within a result set.</rdfs:comment>
@@ -159,6 +157,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#inMetricSet">
+        <owl:inverseOf rdf:resource="https://prometheus-metric-ontology.ericsson.com/#hasResult"/>
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#MetricResult"/>
         <rdfs:range rdf:resource="https://prometheus-metric-ontology.ericsson.com/#MetricResultSet"/>
         <rdfs:comment>A result within a result set.</rdfs:comment>
@@ -171,6 +170,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#usedByMetric">
+        <owl:inverseOf rdf:resource="https://prometheus-metric-ontology.ericsson.com/#hasMetricQuery"/>
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#MetricQuery"/>
         <rdfs:range rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:comment>The metric used by the query.</rdfs:comment>
@@ -198,7 +198,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Address label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasAddress</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -210,7 +210,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Alertmanager label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasAlertmanager</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -222,7 +222,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Alertname label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasAlertname</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -234,7 +234,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Alertstate label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasAlertstate</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -245,8 +245,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasBiosDate">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Biosdate label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Bios date label for the metric.</rdfs:comment>
+        <rdfs:label>hasBiosDate</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -257,8 +257,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasBiosVendor">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Biosvendor label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Bios vendor label for the metric.</rdfs:comment>
+        <rdfs:label>hasBiosVendor</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -269,8 +269,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasBiosVersion">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Biosversion label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Bios version label for the metric.</rdfs:comment>
+        <rdfs:label>hasBiosVersion</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -281,8 +281,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasBoardName">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Boardname label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Board name label for the metric.</rdfs:comment>
+        <rdfs:label>hasBoardName</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -293,8 +293,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasBoardVendor">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Boardvendor label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Board vendor label for the metric.</rdfs:comment>
+        <rdfs:label>hasBoardVendor</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -305,8 +305,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasBoardVersion">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Boardversion label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Board version label for the metric.</rdfs:comment>
+        <rdfs:label>hasBoardVersion</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -318,7 +318,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Branch label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasBranch</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -330,7 +330,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Broadcast label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasBroadcast</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -342,7 +342,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Call label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasCall</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -353,8 +353,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasCapacityLevel">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Capacitylevel label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Capacity level label for the metric.</rdfs:comment>
+        <rdfs:label>hasCapacityLevel</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -366,7 +366,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Cause label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasCause</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -377,8 +377,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasChassisVendor">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Chassisvendor label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Chassis vendor label for the metric.</rdfs:comment>
+        <rdfs:label>hasChassisVendor</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -390,7 +390,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Chip label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasChip</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -401,8 +401,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasChipName">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Chipname label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Chip name label for the metric.</rdfs:comment>
+        <rdfs:label>hasChipName</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -414,7 +414,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Clocksource label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasClocksource</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -425,7 +425,7 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasCode">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The code related to the metric.</rdfs:comment>
+        <rdfs:comment>The Code label for the metric.</rdfs:comment>
         <rdfs:label>hasCode</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -438,7 +438,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Collector label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasCollector</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -450,7 +450,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Config label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasConfig</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -462,7 +462,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Core label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasCore</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -474,7 +474,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Cpu label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasCpu</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -486,7 +486,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Device label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasDevice</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -497,8 +497,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasDialerName">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Dialername label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Dialer name label for the metric.</rdfs:comment>
+        <rdfs:label>hasDialerName</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -510,7 +510,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Domainname label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasDomainname</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -522,7 +522,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Duplex label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasDuplex</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -534,7 +534,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Endpoint label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasEndpoint</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -546,7 +546,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Event label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasEvent</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -557,8 +557,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasFirmwareRevision">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Firmwarerevision label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Firmware revision label for the metric.</rdfs:comment>
+        <rdfs:label>hasFirmwareRevision</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -570,7 +570,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Fstype label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasFstype</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -582,7 +582,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Goversion label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasGoversion</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -593,7 +593,7 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasHandler">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The handler related to the metric.</rdfs:comment>
+        <rdfs:comment>The Handler label for the metric.</rdfs:comment>
         <rdfs:label>hasHandler</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -606,7 +606,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Id label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasId</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -617,8 +617,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasIdLike">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Idlike label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Id like label for the metric.</rdfs:comment>
+        <rdfs:label>hasIdLike</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -630,7 +630,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Index label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasIndex</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -641,7 +641,7 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasInstance">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The instance related to the metric.</rdfs:comment>
+        <rdfs:comment>The Instance label for the metric.</rdfs:comment>
         <rdfs:label>hasInstance</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -654,7 +654,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Interval label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasInterval</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -666,7 +666,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Ip label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasIp</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -678,7 +678,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Job label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasJob</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -690,7 +690,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Label label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasLabel</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -702,7 +702,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Le label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasLe</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -713,8 +713,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasListenerName">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Listenername label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Listener name label for the metric.</rdfs:comment>
+        <rdfs:label>hasListenerName</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -726,7 +726,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Machine label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasMachine</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -738,7 +738,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Major label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasMajor</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -750,7 +750,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Manufacturer label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasManufacturer</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -762,7 +762,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Minor label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasMinor</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -774,7 +774,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Mode label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasMode</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -786,7 +786,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Model label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasModel</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -797,8 +797,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasModelName">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Modelname label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Model name label for the metric.</rdfs:comment>
+        <rdfs:label>hasModelName</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -810,7 +810,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Mountpoint label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasMountpoint</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -821,8 +821,9 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasName">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The   name   label for the metric.</rdfs:comment>
         <rdfs:comment>The Name label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasName</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -834,7 +835,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Nodename label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasNodename</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -846,7 +847,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Operstate label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasOperstate</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -858,7 +859,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Package label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasPackage</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -870,7 +871,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Path label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasPath</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -881,8 +882,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasPowerSupply">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Powersupply label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Power supply label for the metric.</rdfs:comment>
+        <rdfs:label>hasPowerSupply</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -893,8 +894,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasPrettyName">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Prettyname label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Pretty name label for the metric.</rdfs:comment>
+        <rdfs:label>hasPrettyName</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -905,8 +906,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasProductFamily">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Productfamily label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Product family label for the metric.</rdfs:comment>
+        <rdfs:label>hasProductFamily</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -917,8 +918,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasProductName">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Productname label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Product name label for the metric.</rdfs:comment>
+        <rdfs:label>hasProductName</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -930,7 +931,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Quantile label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasQuantile</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -954,7 +955,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Queue label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasQueue</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -966,7 +967,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Reason label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasReason</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -978,7 +979,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Release label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasRelease</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1002,7 +1003,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Revision label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasRevision</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1014,7 +1015,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Role label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasRole</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1025,8 +1026,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasRuleGroup">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Rulegroup label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Rule group label for the metric.</rdfs:comment>
+        <rdfs:label>hasRuleGroup</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1037,8 +1038,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasScrapeJob">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Scrapejob label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Scrape job label for the metric.</rdfs:comment>
+        <rdfs:label>hasScrapeJob</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1050,7 +1051,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Sensor label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasSensor</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1062,7 +1063,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Serial label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasSerial</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1073,8 +1074,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasSerialNumber">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Serialnumber label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Serial number label for the metric.</rdfs:comment>
+        <rdfs:label>hasSerialNumber</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1086,7 +1087,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Slice label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasSlice</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1098,7 +1099,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The State label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasState</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1112,7 +1113,6 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Status label for the metric.</rdfs:comment>
         <rdfs:comment>The status of the API response.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
         <rdfs:label>hasStatus</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1125,7 +1125,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Sysname label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasSysname</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1136,8 +1136,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasSystemVendor">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Systemvendor label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The System vendor label for the metric.</rdfs:comment>
+        <rdfs:label>hasSystemVendor</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1149,7 +1149,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Technology label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasTechnology</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1160,8 +1160,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasTimeZone">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Timezone label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Time zone label for the metric.</rdfs:comment>
+        <rdfs:label>hasTimeZone</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1185,7 +1185,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Type label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasType</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1209,7 +1209,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Version label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasVersion</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1220,8 +1220,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasVersionCodename">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Versioncodename label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Version codename label for the metric.</rdfs:comment>
+        <rdfs:label>hasVersionCodename</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1232,8 +1232,8 @@
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasVersionId">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The Versionid label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:comment>The Version id label for the metric.</rdfs:comment>
+        <rdfs:label>hasVersionId</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1245,7 +1245,7 @@
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Zone label for the metric.</rdfs:comment>
-        <rdfs:label>hasQuery</rdfs:label>
+        <rdfs:label>hasZone</rdfs:label>
     </owl:DatatypeProperty>
     
 
