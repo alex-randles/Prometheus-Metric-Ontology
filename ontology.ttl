@@ -725,8 +725,7 @@
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasStatus
 :hasStatus rdf:type owl:DatatypeProperty ;
-           rdfs:domain :Metric ,
-                       :MetricQuery ;
+           rdfs:domain :MetricQuery ;
            rdfs:range xsd:string ;
            rdfs:comment "The Status label for the metric." ,
                         "The status of the API response." ;
