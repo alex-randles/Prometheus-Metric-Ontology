@@ -1108,7 +1108,6 @@
 
 
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasStatus">
-        <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#MetricQuery"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Status label for the metric.</rdfs:comment>

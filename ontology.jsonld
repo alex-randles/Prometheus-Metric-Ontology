@@ -1321,8 +1321,6 @@
     "@value" : "The status of the API response."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://prometheus-metric-ontology.ericsson.com/#Metric"
-  }, {
     "@id" : "https://prometheus-metric-ontology.ericsson.com/#MetricQuery"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
