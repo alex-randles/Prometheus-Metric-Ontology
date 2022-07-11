@@ -28,7 +28,7 @@
         <https://prometheus-metric-ontology.ericsson.com/#hasMetricQuery>
                 <http://data.example.com/metricQuery/0> ;
         <https://prometheus-metric-ontology.ericsson.com/#hasName>
-                "up" ;
+                "Servers Up" ;
         <https://prometheus-metric-ontology.ericsson.com/#hasResultSet>
                 <http://data.example.com/metricResultSet/0> .
 
