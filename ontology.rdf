@@ -104,6 +104,31 @@
     
 
 
+    <!-- https://prometheus-metric-ontology.ericsson.com/#effectedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#effectedBy">
+        <owl:inverseOf rdf:resource="https://prometheus-metric-ontology.ericsson.com/#effectsMetric"/>
+        <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
+        <rdfs:range rdf:resource="https://prometheus-metric-ontology.ericsson.com/#ActionEffect"/>
+        <rdfs:comment>The effect of the action&apos;s operation on the metric.</rdfs:comment>
+        <rdfs:label>effectedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://prometheus-metric-ontology.ericsson.com/#effectsMetric -->
+
+
+    <owl:ObjectProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#effectsMetric">
+        <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#ActionEffect"/>
+        <rdfs:range rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
+        <rdfs:comment>The metric effected by the action&apos;s operation.</rdfs:comment>
+        <rdfs:label>effectsMetric</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://prometheus-metric-ontology.ericsson.com/#generatedByMetric -->
 
 
@@ -117,14 +142,14 @@
     
 
 
-    <!-- https://prometheus-metric-ontology.ericsson.com/#hasQueryInformation -->
+    <!-- https://prometheus-metric-ontology.ericsson.com/#hasMetricQuery -->
 
 
-    <owl:ObjectProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasQueryInformation">
+    <owl:ObjectProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasMetricQuery">
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="https://prometheus-metric-ontology.ericsson.com/#MetricQuery"/>
         <rdfs:comment>The query which retrieved the metric information.</rdfs:comment>
-        <rdfs:label>hasQueryInformation</rdfs:label>
+        <rdfs:label>hasMetricQuery</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -170,7 +195,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#usedByMetric">
-        <owl:inverseOf rdf:resource="https://prometheus-metric-ontology.ericsson.com/#hasQueryInformation"/>
+        <owl:inverseOf rdf:resource="https://prometheus-metric-ontology.ericsson.com/#hasMetricQuery"/>
         <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#MetricQuery"/>
         <rdfs:range rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:comment>The metric used by the query.</rdfs:comment>
@@ -188,6 +213,18 @@
      -->
 
 
+    
+
+
+    <!-- https://prometheus-metric-ontology.ericsson.com/#hasActionName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasActionName">
+        <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Action"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The name of the action.</rdfs:comment>
+        <rdfs:label>hasActionName</rdfs:label>
+    </owl:DatatypeProperty>
     
 
 
@@ -443,6 +480,18 @@
     
 
 
+    <!-- https://prometheus-metric-ontology.ericsson.com/#hasConfidence -->
+
+
+    <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasConfidence">
+        <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#ActionEffect"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The likelihood of the action having the desired effect.</rdfs:comment>
+        <rdfs:label>hasConfidence</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://prometheus-metric-ontology.ericsson.com/#hasConfig -->
 
 
@@ -475,6 +524,18 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Cpu label for the metric.</rdfs:comment>
         <rdfs:label>hasCpu</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://prometheus-metric-ontology.ericsson.com/#hasDescription -->
+
+
+    <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasDescription">
+        <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Action"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>A textual description of the action.</rdfs:comment>
+        <rdfs:label>hasDescription</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -840,6 +901,18 @@
     
 
 
+    <!-- https://prometheus-metric-ontology.ericsson.com/#hasOperation -->
+
+
+    <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasOperation">
+        <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Action"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The operation which will be executed by the action.</rdfs:comment>
+        <rdfs:label>hasOperation</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://prometheus-metric-ontology.ericsson.com/#hasOperstate -->
 
 
@@ -984,6 +1057,18 @@
     
 
 
+    <!-- https://prometheus-metric-ontology.ericsson.com/#hasResultStatus -->
+
+
+    <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasResultStatus">
+        <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#MetricQuery"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The status of the API response.</rdfs:comment>
+        <rdfs:label>hasResultStatus</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://prometheus-metric-ontology.ericsson.com/#hasResultType -->
 
 
@@ -1108,10 +1193,9 @@
 
 
     <owl:DatatypeProperty rdf:about="https://prometheus-metric-ontology.ericsson.com/#hasStatus">
-        <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#MetricQuery"/>
+        <rdfs:domain rdf:resource="https://prometheus-metric-ontology.ericsson.com/#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The Status label for the metric.</rdfs:comment>
-        <rdfs:comment>The status of the API response.</rdfs:comment>
         <rdfs:label>hasStatus</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1258,6 +1342,27 @@
      -->
 
 
+    
+
+
+    <!-- https://prometheus-metric-ontology.ericsson.com/#Action -->
+
+
+    <owl:Class rdf:about="https://prometheus-metric-ontology.ericsson.com/#Action">
+        <owl:disjointWith rdf:resource="https://prometheus-metric-ontology.ericsson.com/#ActionEffect"/>
+        <rdfs:comment>The operations which will be executed to effect the metric.</rdfs:comment>
+        <rdfs:label>Action</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://prometheus-metric-ontology.ericsson.com/#ActionEffect -->
+
+
+    <owl:Class rdf:about="https://prometheus-metric-ontology.ericsson.com/#ActionEffect">
+        <rdfs:comment>The result of executing the actions operations. </rdfs:comment>
+        <rdfs:label>ActionEffect</rdfs:label>
+    </owl:Class>
     
 
 

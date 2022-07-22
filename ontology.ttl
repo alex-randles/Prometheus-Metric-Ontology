@@ -59,6 +59,23 @@
 #    Object Properties
 #################################################################
 
+###  https://prometheus-metric-ontology.ericsson.com/#effectedBy
+:effectedBy rdf:type owl:ObjectProperty ;
+            owl:inverseOf :effectsMetric ;
+            rdfs:domain :Metric ;
+            rdfs:range :ActionEffect ;
+            rdfs:comment "The effect of the action's operation on the metric." ;
+            rdfs:label "effectedBy" .
+
+
+###  https://prometheus-metric-ontology.ericsson.com/#effectsMetric
+:effectsMetric rdf:type owl:ObjectProperty ;
+               rdfs:domain :ActionEffect ;
+               rdfs:range :Metric ;
+               rdfs:comment "The metric effected by the action's operation." ;
+               rdfs:label "effectsMetric" .
+
+
 ###  https://prometheus-metric-ontology.ericsson.com/#generatedByMetric
 :generatedByMetric rdf:type owl:ObjectProperty ;
                    owl:inverseOf :hasResultSet ;
@@ -68,12 +85,12 @@
                    rdfs:label "generatedByMetric" .
 
 
-###  https://prometheus-metric-ontology.ericsson.com/#hasQueryInformation
-:hasQueryInformation rdf:type owl:ObjectProperty ;
-                     rdfs:domain :Metric ;
-                     rdfs:range :MetricQuery ;
-                     rdfs:comment "The query which retrieved the metric information." ;
-                     rdfs:label "hasQueryInformation" .
+###  https://prometheus-metric-ontology.ericsson.com/#hasMetricQuery
+:hasMetricQuery rdf:type owl:ObjectProperty ;
+                rdfs:domain :Metric ;
+                rdfs:range :MetricQuery ;
+                rdfs:comment "The query which retrieved the metric information." ;
+                rdfs:label "hasMetricQuery" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasResult
@@ -103,7 +120,7 @@
 
 ###  https://prometheus-metric-ontology.ericsson.com/#usedByMetric
 :usedByMetric rdf:type owl:ObjectProperty ;
-              owl:inverseOf :hasQueryInformation ;
+              owl:inverseOf :hasMetricQuery ;
               rdfs:domain :MetricQuery ;
               rdfs:range :Metric ;
               rdfs:comment "The metric used by the query." ;
@@ -113,6 +130,14 @@
 #################################################################
 #    Data properties
 #################################################################
+
+###  https://prometheus-metric-ontology.ericsson.com/#hasActionName
+:hasActionName rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Action ;
+               rdfs:range xsd:string ;
+               rdfs:comment "The name of the action." ;
+               rdfs:label "hasActionName" .
+
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasAddress
 :hasAddress rdf:type owl:DatatypeProperty ;
@@ -282,6 +307,14 @@
               rdfs:label "hasCollector" .
 
 
+###  https://prometheus-metric-ontology.ericsson.com/#hasConfidence
+:hasConfidence rdf:type owl:DatatypeProperty ;
+               rdfs:domain :ActionEffect ;
+               rdfs:range xsd:string ;
+               rdfs:comment "The likelihood of the action having the desired effect." ;
+               rdfs:label "hasConfidence" .
+
+
 ###  https://prometheus-metric-ontology.ericsson.com/#hasConfig
 :hasConfig rdf:type owl:DatatypeProperty ;
            rdfs:domain :Metric ;
@@ -304,6 +337,14 @@
         rdfs:range xsd:string ;
         rdfs:comment "The Cpu label for the metric." ;
         rdfs:label "hasCpu" .
+
+
+###  https://prometheus-metric-ontology.ericsson.com/#hasDescription
+:hasDescription rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Action ;
+                rdfs:range xsd:string ;
+                rdfs:comment "A textual description of the action." ;
+                rdfs:label "hasDescription" .
 
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasDevice
@@ -547,6 +588,14 @@
              rdfs:label "hasNodename" .
 
 
+###  https://prometheus-metric-ontology.ericsson.com/#hasOperation
+:hasOperation rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Action ;
+              rdfs:range xsd:string ;
+              rdfs:comment "The operation which will be executed by the action." ;
+              rdfs:label "hasOperation" .
+
+
 ###  https://prometheus-metric-ontology.ericsson.com/#hasOperstate
 :hasOperstate rdf:type owl:DatatypeProperty ;
               rdfs:domain :Metric ;
@@ -643,6 +692,14 @@
             rdfs:label "hasRelease" .
 
 
+###  https://prometheus-metric-ontology.ericsson.com/#hasResultStatus
+:hasResultStatus rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :MetricQuery ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "The status of the API response." ;
+                 rdfs:label "hasResultStatus" .
+
+
 ###  https://prometheus-metric-ontology.ericsson.com/#hasResultType
 :hasResultType rdf:type owl:DatatypeProperty ;
                rdfs:domain :MetricQuery ;
@@ -725,10 +782,9 @@
 
 ###  https://prometheus-metric-ontology.ericsson.com/#hasStatus
 :hasStatus rdf:type owl:DatatypeProperty ;
-           rdfs:domain :MetricQuery ;
+           rdfs:domain :Metric ;
            rdfs:range xsd:string ;
-           rdfs:comment "The Status label for the metric." ,
-                        "The status of the API response." ;
+           rdfs:comment "The Status label for the metric." ;
            rdfs:label "hasStatus" .
 
 
@@ -823,6 +879,19 @@
 #################################################################
 #    Classes
 #################################################################
+
+###  https://prometheus-metric-ontology.ericsson.com/#Action
+:Action rdf:type owl:Class ;
+        owl:disjointWith :ActionEffect ;
+        rdfs:comment "The operations which will be executed to effect the metric." ;
+        rdfs:label "Action" .
+
+
+###  https://prometheus-metric-ontology.ericsson.com/#ActionEffect
+:ActionEffect rdf:type owl:Class ;
+              rdfs:comment "The result of executing the actions operations. " ;
+              rdfs:label "ActionEffect" .
+
 
 ###  https://prometheus-metric-ontology.ericsson.com/#Metric
 :Metric rdf:type owl:Class ;
