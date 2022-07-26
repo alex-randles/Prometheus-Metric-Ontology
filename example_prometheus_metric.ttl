@@ -1,59 +1,42 @@
+@prefix pmo: <https://prometheus-metric-ontology.ericsson.com/#> .
+
 <http://data.example.com/metricResult/1>
-        a       <https://prometheus-metric-ontology.ericsson.com/#MetricResult> ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasTimestamp>
-                "2022-07-06 19:04:42"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasValue>
-                "1" .
+  a <https://prometheus-metric-ontology.ericsson.com/#MetricResult> ;
+  pmo:hasTimestamp "2022-07-26 12:10:12" ;
+  pmo:hasValue "1" .
 
 <http://data.example.com/metricResultSet/1>
-        a       <https://prometheus-metric-ontology.ericsson.com/#MetricResultSet> ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasResult>
-                <http://data.example.com/metricResult/1> .
-
-<http://data.example.com/metricQuery/0>
-        a       <https://prometheus-metric-ontology.ericsson.com/#MetricQuery> ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasQuery>
-                "up" ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasResultType>
-                "vector" ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasResultStatus>
-                "success" .
+  a pmo:MetricResultSet ;
+  pmo:hasResult <http://data.example.com/metricResult/1> .
 
 <http://data.example.com/metric/0>
-        a       <https://prometheus-metric-ontology.ericsson.com/#Metric> ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasInstance>
-                "localhost:9090" ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasJob>
-                "prometheus" ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasMetricQuery>
-                <http://data.example.com/metricQuery/0> ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasName>
-                "Servers Up" ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasResultSet>
-                <http://data.example.com/metricResultSet/0> .
+  a pmo:Metric ;
+  pmo:hasInstance "localhost:9090" ;
+  pmo:hasJob "prometheus" ;
+  pmo:hasName "up" ;
+  pmo:hasQueryInformation <http://data.example.com/metricQuery/0> ;
+  pmo:hasResultSet <http://data.example.com/metricResultSet/0> .
+
+<http://data.example.com/metricQuery/0>
+  a pmo:MetricQuery ;
+  pmo:hasQuery "up" ;
+  pmo:hasResultStatus "success" ;
+  pmo:hasResultType "vector" .
 
 <http://data.example.com/metricResult/0>
-        a       <https://prometheus-metric-ontology.ericsson.com/#MetricResult> ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasTimestamp>
-                "2022-07-06 19:04:42"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasValue>
-                "1" .
+  a pmo:MetricResult ;
+  pmo:hasTimestamp "2022-07-26 12:10:12" ;
+  pmo:hasValue "1" .
 
 <http://data.example.com/metricResultSet/0>
-        a       <https://prometheus-metric-ontology.ericsson.com/#MetricResultSet> ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasResult>
-                <http://data.example.com/metricResult/0> .
+  a pmo:MetricResultSet ;
+  pmo:hasResult <http://data.example.com/metricResult/0> .
 
 <http://data.example.com/metric/1>
-        a       <https://prometheus-metric-ontology.ericsson.com/#Metric> ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasInstance>
-                "localhost:9100" ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasJob>
-                "node_exporter" ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasMetricQuery>
-                <http://data.example.com/metricQuery/1> ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasName>
-                "up" ;
-        <https://prometheus-metric-ontology.ericsson.com/#hasResultSet>
-                <http://data.example.com/metricResultSet/1> .
+  a pmo:Metric ;
+  pmo:hasInstance "localhost:9100" ;
+  pmo:hasJob "node_exporter" ;
+  pmo:hasName "up" ;
+  pmo:hasQueryInformation <http://data.example.com/metricQuery/0> ;
+  pmo:hasResultSet <http://data.example.com/metricResultSet/1> .
 
